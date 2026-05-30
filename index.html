@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Acefold · Amazon Growth Partner for Premium U.S. Brands</title>
+<meta name="description" content="Acefold is a full service Amazon agency. We build the listings, the PPC, and the launch plans that turn Amazon shelves into revenue that compounds. Four aces. One hand." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0A1F33;
+    --deep:#06141F;
+    --gold:#C9A961;
+    --gold-soft:#d8bd82;
+    --cream:#F5EFE2;
+    --paper:#FFFFFF;
+    --line-navy:rgba(245,239,226,0.12);
+    --line-cream:rgba(10,31,51,0.12);
+    --muted-cream:rgba(245,239,226,0.62);
+    --muted-navy:rgba(10,31,51,0.60);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',sans-serif;
+    background:var(--navy);
+    color:var(--cream);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold);color:var(--navy)}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+  /* eyebrow / label-caps */
+  .eyebrow{
+    font-size:12px;font-weight:600;text-transform:uppercase;
+    letter-spacing:0.18em;color:var(--gold);
+    display:inline-flex;align-items:center;
+  }
+  .eyebrow.dark{color:var(--gold)}
+
+  h1,h2,h3{font-weight:800;letter-spacing:-0.03em;line-height:1.02}
+  .gold{color:var(--gold)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:1180px;margin:0 auto;
+    transition:padding .3s ease;
+  }
+  .nav-bg{
+    position:fixed;top:0;left:0;right:0;height:74px;z-index:99;
+    background:rgba(6,20,31,0.0);backdrop-filter:blur(0px);
+    border-bottom:1px solid transparent;transition:all .35s ease;
+  }
+  .nav-bg.scrolled{
+    background:rgba(6,20,31,0.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-navy);
+  }
+  .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
+  .brand-name{
+    font-weight:700;font-size:21px;letter-spacing:-0.01em;color:var(--cream);
+  }
+  .brand-name b{color:var(--gold);font-weight:700}
+  .nav-links{display:flex;align-items:center;gap:38px}
+  .nav-links a{
+    color:var(--muted-cream);text-decoration:none;font-size:14px;font-weight:500;
+    letter-spacing:-0.01em;transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--cream)}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-weight:600;font-size:14px;letter-spacing:0.01em;
+    padding:12px 22px;border-radius:2px;text-decoration:none;
+    transition:all .25s ease;cursor:pointer;border:none;
+  }
+  .btn-gold{background:var(--gold);color:var(--navy)}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--cream);border:1px solid var(--line-navy)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+  .nav-toggle{display:none}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;padding:170px 0 110px;overflow:hidden;
+  }
+  .hero-grid{
+    position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:
+      linear-gradient(var(--line-navy) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-navy) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 80% 70% at 70% 30%,#000 0%,transparent 75%);
+  }
+  .hero-glow{
+    position:absolute;top:-10%;right:-5%;width:620px;height:620px;z-index:0;
+    background:radial-gradient(circle,rgba(201,169,97,0.13) 0%,transparent 62%);
+    filter:blur(8px);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:880px}
+  .hero h1{
+    font-size:clamp(44px,7vw,82px);margin:26px 0 0;
+  }
+  .hero .lede{
+    font-size:clamp(17px,2vw,20px);color:var(--muted-cream);font-weight:400;
+    max-width:600px;margin-top:30px;letter-spacing:-0.005em;
+  }
+  .hero-cta{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap}
+  .hand{
+    margin-top:54px;display:inline-flex;align-items:center;gap:14px;
+    font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.22em;
+    color:var(--muted-cream);
+  }
+  .hand .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+  /* metric strip */
+  .strip{
+    border-top:1px solid var(--line-navy);border-bottom:1px solid var(--line-navy);
+    margin-top:78px;position:relative;z-index:2;
+  }
+  .strip-inner{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat{padding:34px 30px;border-right:1px solid var(--line-navy)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-size:clamp(30px,4vw,42px);font-weight:800;letter-spacing:-0.04em;line-height:1}
+  .stat .n b{color:var(--gold);font-weight:800}
+  .stat .l{font-size:12.5px;color:var(--muted-cream);margin-top:12px;letter-spacing:0.01em}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .sec{padding:108px 0}
+  .sec-cream{background:var(--cream);color:var(--navy)}
+  .sec-cream .eyebrow{color:#9a7d2f}
+  .sec-head{max-width:720px;margin-bottom:60px}
+  .sec-head h2{font-size:clamp(32px,4.4vw,52px);margin-top:22px}
+  .sec-head p{
+    font-size:17px;margin-top:22px;color:var(--muted-cream);font-weight:400;max-width:560px;
+  }
+  .sec-cream .sec-head p{color:var(--muted-navy)}
+
+  /* ---------- PRINCIPLES ---------- */
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line-navy)}
+  .principle{
+    padding:42px 40px 46px;border-bottom:1px solid var(--line-navy);
+    border-right:1px solid var(--line-navy);position:relative;transition:background .3s;
+  }
+  .principle:nth-child(2n){border-right:none}
+  .principle:hover{background:rgba(245,239,226,0.02)}
+  .principle .idx{
+    font-size:12px;font-weight:700;letter-spacing:0.15em;color:var(--gold);
+  }
+  .principle h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;margin:18px 0 14px;line-height:1.1}
+  .principle p{font-size:15px;color:var(--muted-cream);font-weight:400}
+
+  /* ---------- METHOD (cream) ---------- */
+  .method{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line-cream)}
+  .phase{padding:36px 28px 40px;border-right:1px solid var(--line-cream);position:relative}
+  .phase:last-child{border-right:none}
+  .phase .ph{
+    font-size:12px;font-weight:700;letter-spacing:0.16em;color:#9a7d2f;text-transform:uppercase;
+  }
+  .phase h3{font-size:21px;font-weight:700;letter-spacing:-0.02em;margin:30px 0 12px;color:var(--navy);line-height:1.12}
+  .phase p{font-size:14px;color:var(--muted-navy);font-weight:400}
+  .phase .bar{height:2px;width:30px;background:var(--gold);margin-top:6px}
+
+  /* ---------- SERVICES ---------- */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc{
+    border:1px solid var(--line-navy);padding:38px 32px 42px;border-radius:3px;
+    background:rgba(245,239,226,0.015);transition:all .3s ease;position:relative;overflow:hidden;
+  }
+  .svc:hover{border-color:rgba(201,169,97,0.4);transform:translateY(-3px)}
+  .svc .card-ico{margin-bottom:26px}
+  .svc h3{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px}
+  .svc p{font-size:15px;color:var(--muted-cream);font-weight:400;margin-bottom:22px}
+  .svc ul{list-style:none}
+  .svc li{
+    font-size:14px;color:var(--muted-cream);padding:9px 0 9px 22px;position:relative;
+    border-top:1px solid var(--line-navy);
+  }
+  .svc li:first-child{border-top:none}
+  .svc li::before{
+    content:"";position:absolute;left:0;top:16px;width:7px;height:7px;
+    border:1px solid var(--gold);transform:rotate(45deg);
+  }
+
+  /* ---------- CASE / NUMBERS (cream) ---------- */
+  .case-quote{
+    font-size:clamp(24px,3.2vw,38px);font-weight:700;letter-spacing:-0.02em;
+    line-height:1.25;max-width:880px;color:var(--navy);
+  }
+  .case-quote .gold{color:#b8923a}
+  .case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:64px;border-top:1px solid var(--line-cream)}
+  .case-cell{padding:36px 30px;border-right:1px solid var(--line-cream)}
+  .case-cell:last-child{border-right:none}
+  .case-cell .n{font-size:clamp(34px,4.5vw,52px);font-weight:800;letter-spacing:-0.04em;color:var(--navy);line-height:1}
+  .case-cell .n b{color:#b8923a;font-weight:800}
+  .case-cell .l{font-size:13px;color:var(--muted-navy);margin-top:14px;letter-spacing:0.02em;text-transform:uppercase;font-weight:600}
+  .case-note{font-size:13px;color:var(--muted-navy);margin-top:30px;letter-spacing:0.01em}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--deep);padding:120px 0;position:relative;overflow:hidden;
+  }
+  .cta-grid{
+    position:absolute;inset:0;opacity:.4;
+    background-image:
+      linear-gradient(var(--line-navy) 1px,transparent 1px),
+      linear-gradient(90deg,var(--line-navy) 1px,transparent 1px);
+    background-size:54px 54px;
+    mask-image:radial-gradient(ellipse 70% 80% at 50% 50%,#000,transparent 72%);
+  }
+  .cta-inner{position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto}
+  .cta h2{font-size:clamp(38px,5.5vw,68px);margin:24px 0 0}
+  .cta p{font-size:18px;color:var(--muted-cream);margin-top:26px;font-weight:400}
+  .cta .sub{
+    margin-top:14px;font-size:13px;font-weight:600;text-transform:uppercase;
+    letter-spacing:0.18em;color:var(--gold);
+  }
+  .cta .btn{margin-top:42px;padding:16px 34px;font-size:15px}
+  .eyebrow.center{display:flex;justify-content:center}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--deep);border-top:1px solid var(--line-navy);padding:64px 0 38px}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+  .foot-brand{max-width:320px}
+  .foot-brand p{font-size:14px;color:var(--muted-cream);margin-top:18px;font-weight:400}
+  .foot-cols{display:flex;gap:70px;flex-wrap:wrap}
+  .foot-col h4{font-size:12px;text-transform:uppercase;letter-spacing:0.16em;color:var(--gold);margin-bottom:18px;font-weight:600}
+  .foot-col a,.foot-col span{display:block;font-size:14px;color:var(--muted-cream);text-decoration:none;margin-bottom:11px;font-weight:400}
+  .foot-col a:hover{color:var(--cream)}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    margin-top:54px;padding-top:26px;border-top:1px solid var(--line-navy);
+    font-size:12.5px;color:var(--muted-cream);letter-spacing:0.02em;
+  }
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    .nav-links{
+      position:fixed;inset:0;top:0;background:var(--deep);flex-direction:column;
+      justify-content:center;gap:30px;transform:translateX(100%);transition:transform .35s ease;
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:20px}
+    .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;z-index:101}
+    .nav-toggle span{width:26px;height:2px;background:var(--cream);display:block;transition:.3s}
+    .nav .btn-gold{display:none}
+    .strip-inner{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:none}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line-navy)}
+    .principles{grid-template-columns:1fr}
+    .principle{border-right:none}
+    .method{grid-template-columns:1fr}
+    .phase{border-right:none;border-bottom:1px solid var(--line-cream)}
+    .phase:last-child{border-bottom:none}
+    .services{grid-template-columns:1fr}
+    .case-grid{grid-template-columns:1fr}
+    .case-cell{border-right:none;border-bottom:1px solid var(--line-cream)}
+    .case-cell:last-child{border-bottom:none}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 22px}
+    nav{padding:18px 22px}
+    .strip-inner{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line-navy)}
+    .stat:last-child{border-bottom:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- card-stack logo (reusable) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="acemark" viewBox="0 0 56 56">
+      <!-- back card -->
+      <g transform="rotate(-15 28 40)">
+        <rect x="14" y="14" width="22" height="31" rx="3" fill="#0A1F33" stroke="#C9A961" stroke-width="0.8" opacity="0.55"/>
+      </g>
+      <!-- middle card -->
+      <g transform="rotate(-7 28 40)">
+        <rect x="17" y="11" width="22" height="31" rx="3" fill="#13283d" stroke="#C9A961" stroke-width="0.8" opacity="0.8"/>
+      </g>
+      <!-- front card -->
+      <g>
+        <rect x="20" y="9" width="23" height="33" rx="3.2" fill="#F5EFE2" stroke="#C9A961" stroke-width="1.4"/>
+        <text x="23" y="18" font-family="Manrope,sans-serif" font-size="6.5" font-weight="800" fill="#C9A961">A</text>
+        <text x="31.5" y="42" font-family="Manrope,sans-serif" font-size="6.5" font-weight="800" fill="#C9A961" transform="rotate(180 35 38)">A</text>
+        <text x="31.5" y="29.5" font-family="Manrope,sans-serif" font-size="15" font-weight="800" fill="#C9A961" text-anchor="middle">A</text>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="nav-bg" id="navbg"></div>
+<nav>
+  <a href="#top" class="brand">
+    <svg width="36" height="36"><use href="#acemark"/></svg>
+    <span class="brand-name">Ace<b>fold</b></span>
+  </a>
+  <div class="nav-links" id="navlinks">
+    <a href="#principles">Principles</a>
+    <a href="#method">Method</a>
+    <a href="#services">Services</a>
+    <a href="#numbers">The Numbers</a>
+    <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener" class="btn btn-gold" style="padding:11px 20px">Free audit</a>
+  </div>
+  <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div id="top"></div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow reveal">Full service Amazon agency · United States</span>
+      <h1 class="reveal">A growth partner for brands that are done with <span class="gold">vendors</span>.</h1>
+      <p class="lede reveal">We run your listings, your PPC, and your launches as one system, and we treat your P&amp;L like it's ours. Not a service desk you email and wait on. The team that sits inside your numbers.</p>
+      <div class="hero-cta reveal">
+        <a href="#audit" class="btn btn-gold">Book a free audit</a>
+        <a href="#numbers" class="btn btn-ghost">See the numbers</a>
+      </div>
+      <div class="hand reveal"><span class="dot"></span> Four aces. One hand.</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="strip reveal">
+      <div class="strip-inner">
+        <div class="stat"><div class="n"><b>+108%</b></div><div class="l">PPC sales lift on a top account</div></div>
+        <div class="stat"><div class="n">4 phases</div><div class="l">One method, run on every account</div></div>
+        <div class="stat"><div class="n">Day <b>45</b></div><div class="l">When the launch window closes</div></div>
+        <div class="stat"><div class="n">P&amp;L</div><div class="l">Objective on every engagement</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRINCIPLES ===== -->
+<section class="sec" id="principles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">01 · The brand</span>
+      <h2>We are operators, <span class="gold">not vendors</span>.</h2>
+      <p>Four things sit under every account we touch. Tactics change all the time. These don't.</p>
+    </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <div class="idx">01</div>
+        <h3>We own the outcome</h3>
+        <p>We don't bill by the hour. Every account has a P&amp;L number to hit, and that's what we get judged on. If the number doesn't move, neither do we.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="idx">02</div>
+        <h3>Discipline beats tactics</h3>
+        <p>The same four phase method runs on every account. SEO foundation, then structure, then campaigns, then we keep optimizing. The order doesn't change.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="idx">03</div>
+        <h3>Numbers are the only review</h3>
+        <p>SEO scores, ACOS, TACOS, CVR, sales lift. That's the report. Decoration is for fonts. You see the real verdict every month.</p>
+      </div>
+      <div class="principle reveal">
+        <div class="idx">04</div>
+        <h3>Brand is the multiplier</h3>
+        <p>Paid spend without a brand behind it just leaks. So we build PPC that lifts your organic rank, and listings people actually remember, not just click.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METHOD (cream) ===== -->
+<section class="sec sec-cream" id="method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">02 · Method</span>
+      <h2>One method. <span class="gold">Four phases.</span></h2>
+      <p>Same engine on every account. You always know what's coming next, because revenue that compounds gets built on purpose, not stumbled into.</p>
+    </div>
+    <div class="method">
+      <div class="phase reveal">
+        <div class="ph">Phase 01</div>
+        <div class="bar"></div>
+        <h3>SEO foundation</h3>
+        <p>Keywords mapped, indexation fixed, listings made relevant. All of it before a single dollar of spend goes live.</p>
+      </div>
+      <div class="phase reveal">
+        <div class="ph">Phase 02</div>
+        <div class="bar"></div>
+        <h3>Structure</h3>
+        <p>Clean catalog, a variation strategy that makes sense, and conversion assets that hold up once traffic actually hits.</p>
+      </div>
+      <div class="phase reveal">
+        <div class="ph">Phase 03</div>
+        <div class="bar"></div>
+        <h3>Campaigns</h3>
+        <p>PPC built by intent, top placements defended, and a real path to profit. Not just impressions that look good in a screenshot.</p>
+      </div>
+      <div class="phase reveal">
+        <div class="ph">Phase 04</div>
+        <div class="bar"></div>
+        <h3>Optimization</h3>
+        <p>Every week we read ACOS, TACOS, and CVR, push budget toward what's working, and kill what isn't. That's the whole job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">03 · Services</span>
+      <h2>What we <span class="gold">build</span>.</h2>
+      <p>Three engines, run as one. We don't fix up your listings to make them look nicer. We rebuild them to make money.</p>
+    </div>
+    <div class="services">
+      <div class="svc reveal">
+        <svg class="card-ico" width="42" height="42"><use href="#acemark"/></svg>
+        <h3>Listings</h3>
+        <p>SEO led copy and creative that earns the click, then actually holds the sale.</p>
+        <ul>
+          <li>Keyword mapping &amp; indexation</li>
+          <li>Title, bullets, and backend terms</li>
+          <li>A+ Content &amp; image sets that convert</li>
+          <li>Variation &amp; catalog cleanup</li>
+        </ul>
+      </div>
+      <div class="svc reveal">
+        <svg class="card-ico" width="42" height="42"><use href="#acemark"/></svg>
+        <h3>PPC</h3>
+        <p>Campaigns built to turn a profit, not to chase impressions nobody buys from.</p>
+        <ul>
+          <li>Campaigns split by buyer intent</li>
+          <li>Placement &amp; brand defense</li>
+          <li>ACOS and TACOS targets</li>
+          <li>Weekly optimization, every week</li>
+        </ul>
+      </div>
+      <div class="svc reveal">
+        <svg class="card-ico" width="42" height="42"><use href="#acemark"/></svg>
+        <h3>Launches</h3>
+        <p>The honeymoon window shuts around day 45. After that Amazon wants velocity, so we build for it from day one.</p>
+        <ul>
+          <li>Ranking plan before you go live</li>
+          <li>Velocity &amp; review pacing</li>
+          <li>Budget weighted by SKU tier</li>
+          <li>A plan to defend the rank after</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NUMBERS (cream) ===== -->
+<section class="sec sec-cream" id="numbers">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:46px">
+      <span class="eyebrow">04 · The numbers</span>
+    </div>
+    <p class="case-quote reveal">PPC sales rose <span class="gold">108%</span> on a 77% spend increase. The delta is 31 points. <span class="gold">That's the case.</span></p>
+    <div class="case-grid reveal">
+      <div class="case-cell">
+        <div class="n"><b>+108%</b></div>
+        <div class="l">PPC sales lift</div>
+      </div>
+      <div class="case-cell">
+        <div class="n">+77%</div>
+        <div class="l">Spend increase</div>
+      </div>
+      <div class="case-cell">
+        <div class="n"><b>31 pts</b></div>
+        <div class="l">Efficiency delta</div>
+      </div>
+    </div>
+    <p class="case-note reveal">These figures are from a real top quartile account over one reporting period. We only put a number on this site if we can defend it on next month's call.</p>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta" id="audit">
+  <div class="cta-grid"></div>
+  <div class="wrap">
+    <div class="cta-inner">
+      <span class="eyebrow center reveal">For premium U.S. Amazon brands</span>
+      <h2 class="reveal">Free <span class="gold">audit</span>.</h2>
+      <p class="reveal">90 minutes. No deck. Just your numbers and where the money's leaking.</p>
+      <p class="sub reveal">Four aces. One hand.</p>
+      <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener" class="btn btn-gold reveal">Book your slot</a>
+      <p class="reveal" style="margin-top:22px;font-size:14px;color:var(--muted-cream)">Or email us at <a href="mailto:team@acefold.com" style="color:var(--gold);text-decoration:none">team@acefold.com</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <svg width="34" height="34"><use href="#acemark"/></svg>
+          <span class="brand-name">Ace<b>fold</b></span>
+        </a>
+        <p>A full service Amazon agency for premium U.S. brands. Numbers aren't decoration here. They're the only review that counts.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Agency</h4>
+          <a href="#principles">Principles</a>
+          <a href="#method">Method</a>
+          <a href="#services">Services</a>
+          <a href="#numbers">The Numbers</a>
+        </div>
+        <div class="foot-col">
+          <h4>Services</h4>
+          <a href="#services">Listings</a>
+          <a href="#services">PPC</a>
+          <a href="#services">Launches</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:team@acefold.com">team@acefold.com</a>
+          <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener">Book a free audit</a>
+          <span>Registered in New Mexico, USA</span>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Acefold LLC. All rights reserved.</span>
+      <span>Four aces. One hand.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav background on scroll
+  const navbg=document.getElementById('navbg');
+  window.addEventListener('scroll',()=>{
+    navbg.classList.toggle('scrolled',window.scrollY>40);
+  });
+  // mobile menu
+  const toggle=document.getElementById('navtoggle');
+  const links=document.getElementById('navlinks');
+  toggle.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  },{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{
+    el.style.transitionDelay=(i%5*0.06)+'s';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
