@@ -204,6 +204,49 @@
   .case-cell .l{font-size:13px;color:var(--muted-navy);margin-top:14px;letter-spacing:0.02em;text-transform:uppercase;font-weight:600}
   .case-note{font-size:13px;color:var(--muted-navy);margin-top:30px;letter-spacing:0.01em}
 
+  /* ---------- CASE STUDY CARDS (on cream) ---------- */
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+  .ccard{
+    border:1px solid var(--line-cream);border-radius:3px;padding:0 0 30px;
+    background:rgba(10,31,51,0.02);transition:all .3s ease;overflow:hidden;
+  }
+  .ccard:hover{border-color:rgba(184,146,58,0.5);transform:translateY(-3px)}
+  .ccard-bar{height:3px;background:linear-gradient(90deg,var(--gold),rgba(184,146,58,0.25))}
+  .ccard-body{padding:28px 28px 0}
+  .ccard-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .ccard-cat{font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#9a7d2f}
+  .ccard-days{font-size:10.5px;font-weight:600;letter-spacing:0.06em;color:var(--muted-navy);text-transform:uppercase;border:1px solid var(--line-cream);padding:3px 9px;border-radius:20px}
+  .ccard h3{font-size:20px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:24px;color:var(--navy)}
+  .ccard h3 b{color:#b8923a;font-weight:800}
+  .ccard-metrics{display:flex;gap:0;border-top:1px solid var(--line-cream)}
+  .ccard-m{flex:1;padding:18px 6px 0;border-right:1px solid var(--line-cream);text-align:center}
+  .ccard-m:last-child{border-right:none}
+  .ccard-m .mv{font-size:22px;font-weight:800;letter-spacing:-0.03em;color:var(--navy);line-height:1}
+  .ccard-m .ml{font-size:10px;color:var(--muted-navy);margin-top:8px;letter-spacing:0.06em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-cream)}
+  .quote{padding:36px 32px 34px;border-right:1px solid var(--line-cream);border-bottom:1px solid var(--line-cream)}
+  .quote:nth-child(3n){border-right:none}
+  .quote:nth-last-child(-n+3){border-bottom:none}
+  .quote .mark{font-size:40px;font-weight:800;color:var(--gold);line-height:.6;height:22px}
+  .quote p{font-size:15.5px;color:var(--navy);font-weight:500;line-height:1.5;margin:14px 0 22px}
+  .quote p b{color:#b8923a;font-weight:700}
+  .quote .who{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy)}
+  .quote .role{font-size:12px;color:var(--muted-navy);margin-top:4px;letter-spacing:0.02em}
+
+  /* ---------- FAQ ---------- */
+  .faq{border-top:1px solid var(--line-navy);max-width:860px}
+  .faq details{border-bottom:1px solid var(--line-navy)}
+  .faq summary{
+    list-style:none;cursor:pointer;padding:24px 0;display:flex;justify-content:space-between;
+    align-items:center;gap:20px;font-size:18px;font-weight:600;letter-spacing:-0.01em;color:var(--cream);
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .pl{color:var(--gold);font-size:22px;font-weight:400;transition:transform .25s;flex-shrink:0}
+  .faq details[open] summary .pl{transform:rotate(45deg)}
+  .faq .ans{padding:0 0 26px;font-size:15px;color:var(--muted-cream);font-weight:400;max-width:720px;line-height:1.65}
+
   /* ---------- CTA ---------- */
   .cta{
     background:var(--deep);padding:120px 0;position:relative;overflow:hidden;
@@ -268,6 +311,11 @@
     .case-grid{grid-template-columns:1fr}
     .case-cell{border-right:none;border-bottom:1px solid var(--line-cream)}
     .case-cell:last-child{border-bottom:none}
+    .cases{grid-template-columns:1fr}
+    .quotes{grid-template-columns:1fr}
+    .quote{border-right:none}
+    .quote:nth-last-child(-n+3){border-bottom:1px solid var(--line-cream)}
+    .quote:last-child{border-bottom:none}
   }
   @media(max-width:560px){
     .wrap{padding:0 22px}
@@ -314,7 +362,8 @@
     <a href="#method">Method</a>
     <a href="#services">Services</a>
     <a href="#numbers">The Numbers</a>
-    <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener" class="btn btn-gold" style="padding:11px 20px">Free audit</a>
+    <a href="#clients">Clients</a>
+    <a href="https://calendly.com/team-acefold/30min" target="_blank" rel="noopener" class="btn btn-gold" style="padding:11px 20px">Free audit</a>
   </div>
   <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -488,6 +537,109 @@
       </div>
     </div>
     <p class="case-note reveal">These figures are from a real top quartile account over one reporting period. We only put a number on this site if we can defend it on next month's call.</p>
+
+    <div class="cases" style="margin-top:56px">
+      <div class="ccard reveal">
+        <div class="ccard-bar"></div>
+        <div class="ccard-body">
+          <div class="ccard-top"><span class="ccard-cat">Supplement brand</span><span class="ccard-days">28 days</span></div>
+          <h3>Sales up <b>72%</b> in four weeks</h3>
+          <div class="ccard-metrics">
+            <div class="ccard-m"><div class="mv">+72%</div><div class="ml">Sales</div></div>
+            <div class="ccard-m"><div class="mv">+34%</div><div class="ml">CVR</div></div>
+            <div class="ccard-m"><div class="mv">+64%</div><div class="ml">Sessions</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="ccard reveal">
+        <div class="ccard-bar"></div>
+        <div class="ccard-body">
+          <div class="ccard-top"><span class="ccard-cat">Sports nutrition</span><span class="ccard-days">21 days</span></div>
+          <h3>Revenue up <b>$11.4k</b> in three weeks</h3>
+          <div class="ccard-metrics">
+            <div class="ccard-m"><div class="mv">+58%</div><div class="ml">Sales</div></div>
+            <div class="ccard-m"><div class="mv">+29%</div><div class="ml">CVR</div></div>
+            <div class="ccard-m"><div class="mv">3.4x</div><div class="ml">ROAS</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="ccard reveal">
+        <div class="ccard-bar"></div>
+        <div class="ccard-body">
+          <div class="ccard-top"><span class="ccard-cat">Home &amp; kitchen</span><span class="ccard-days">16 days</span></div>
+          <h3>ACOS cut from <b>39%</b> to 17%</h3>
+          <div class="ccard-metrics">
+            <div class="ccard-m"><div class="mv">17%</div><div class="ml">ACOS</div></div>
+            <div class="ccard-m"><div class="mv">+48%</div><div class="ml">Orders</div></div>
+            <div class="ccard-m"><div class="mv">+23%</div><div class="ml">TACOS lift</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="case-note reveal" style="margin-top:26px">Results vary by category and starting point. Every number here is one we can walk you through line by line.</p>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS (cream) ===== -->
+<section class="sec sec-cream" id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">05 · Clients</span>
+      <h2>What founders <span class="gold">say</span>.</h2>
+      <p>We let the numbers do most of the talking. Here's what the people behind them add.</p>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="mark">"</div>
+        <p>They didn't redesign our listings to look nice. They rebuilt the funnel and our <b>CVR jumped 34%</b> in the first cycle.</p>
+        <div class="who">S. M.</div>
+        <div class="role">Founder · Supplement brand</div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">"</div>
+        <p>First agency that talked about <b>P&amp;L before pixels</b>. We finally know which campaigns make money and which were just burning spend.</p>
+        <div class="who">J. R.</div>
+        <div class="role">Owner · Sports nutrition brand</div>
+      </div>
+      <div class="quote reveal">
+        <div class="mark">"</div>
+        <p>The weekly reporting is blunt and honest. No fluff. <b>ACOS dropped 22 points</b> and they showed us exactly why.</p>
+        <div class="who">A. K.</div>
+        <div class="role">Brand manager · Home &amp; kitchen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">06 · FAQ</span>
+      <h2>A few things <span class="gold">cleared up</span>.</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>Do you only do PPC, or listings too?<span class="pl">+</span></summary>
+        <div class="ans">Both, and that's the point. The PPC data tells us where the listing is leaking, and the listing work makes the PPC convert. Run separately, they fight each other. Run together, they compound.</div>
+      </details>
+      <details>
+        <summary>How fast do we see movement?<span class="pl">+</span></summary>
+        <div class="ans">Most accounts show a read inside the first reporting cycle, roughly two to four weeks. We build for the velocity that holds after launch, not a spike that fades by day 45.</div>
+      </details>
+      <details>
+        <summary>Can we start with one ASIN?<span class="pl">+</span></summary>
+        <div class="ans">Yes. Most brands start with one. Once you see the CVR and ACOS move, scaling to the rest of the catalog is an easy call.</div>
+      </details>
+      <details>
+        <summary>What if we've been burned by an agency before?<span class="pl">+</span></summary>
+        <div class="ans">Common story. Design alone never sold anything. We rebuild the part of the funnel that's actually leaking, and we report against your P&amp;L every month so you always see what's working.</div>
+      </details>
+      <details>
+        <summary>Will we get real reporting?<span class="pl">+</span></summary>
+        <div class="ans">Every month. SEO scores, ACOS, TACOS, CVR, sales lift. No "trust us." You see the verdict and the reasoning behind it.</div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -500,7 +652,7 @@
       <h2 class="reveal">Free <span class="gold">audit</span>.</h2>
       <p class="reveal">90 minutes. No deck. Just your numbers and where the money's leaking.</p>
       <p class="sub reveal">Four aces. One hand.</p>
-      <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener" class="btn btn-gold reveal">Book your slot</a>
+      <a href="https://calendly.com/team-acefold/30min" target="_blank" rel="noopener" class="btn btn-gold reveal">Book your slot</a>
       <p class="reveal" style="margin-top:22px;font-size:14px;color:var(--muted-cream)">Or email us at <a href="mailto:team@acefold.com" style="color:var(--gold);text-decoration:none">team@acefold.com</a></p>
     </div>
   </div>
@@ -534,7 +686,7 @@
         <div class="foot-col">
           <h4>Contact</h4>
           <a href="mailto:team@acefold.com">team@acefold.com</a>
-          <a href="https://calendly.com/acefold/free-audit" target="_blank" rel="noopener">Book a free audit</a>
+          <a href="https://calendly.com/team-acefold/30min" target="_blank" rel="noopener">Book a free audit</a>
           <span>Registered in New Mexico, USA</span>
         </div>
       </div>
