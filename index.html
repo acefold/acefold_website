@@ -7,7 +7,9 @@
 <meta name="description" content="Acefold is a full service Amazon agency. We run your listings, PPC, and launches as one system and report against your profit, not vanity metrics. Four aces. One hand." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 <style>
   :root{
     --navy:#0A1F33;
@@ -35,8 +37,8 @@
   .gold{color:var(--gold)}
 
   /* NAV */
-  .nav-bg{position:fixed;top:0;left:0;right:0;height:74px;z-index:99;background:rgba(6,20,31,0);backdrop-filter:blur(0);border-bottom:1px solid transparent;transition:all .35s ease}
-  .nav-bg.scrolled{background:rgba(6,20,31,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-navy)}
+  .nav-bg{position:fixed;top:0;left:0;right:0;height:74px;z-index:99;background:rgba(6,20,31,0);border-bottom:1px solid transparent;transition:background .35s ease,border-color .35s ease}
+  .nav-bg.scrolled{background:rgba(6,20,31,0.96);border-bottom:1px solid var(--line-navy)}
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1180px;margin:0 auto}
   .brand{display:flex;align-items:center;gap:13px;text-decoration:none}
   .brand-name{font-weight:700;font-size:21px;letter-spacing:-0.01em;color:var(--cream)}
@@ -63,7 +65,7 @@
   .hand .dot{width:5px;height:5px;border-radius:50%;background:var(--gold)}
 
   /* HERO CHART CARD */
-  .chartcard{background:linear-gradient(160deg,rgba(245,239,226,0.04),rgba(245,239,226,0.01));border:1px solid var(--line-navy);border-radius:8px;padding:24px 24px 18px;backdrop-filter:blur(4px);box-shadow:0 30px 60px -30px rgba(0,0,0,0.6)}
+  .chartcard{background:linear-gradient(160deg,rgba(245,239,226,0.04),rgba(245,239,226,0.01));border:1px solid var(--line-navy);border-radius:8px;padding:24px 24px 18px;box-shadow:0 30px 60px -30px rgba(0,0,0,0.6)}
   .chartcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
   .chartcard-top .t{font-size:13px;font-weight:700;letter-spacing:0.02em;color:var(--cream)}
   .chartcard-top .s{font-size:11px;color:var(--muted-cream);margin-top:3px}
