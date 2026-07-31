@@ -43,7 +43,6 @@
 <section class="hero-top">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-  <canvas id="hero3d"></canvas>
   <div class="wrap">
     <div class="hero-lead">
       <span class="eyebrow">Amazon growth partner · United States</span>
@@ -65,7 +64,7 @@
           <a href="#clients" class="lnk">See the results <span class="arr">&#8594;</span></a>
         </div>
         <div class="hb-visual reveal">
-          <div class="resultchart tilt">
+          <div class="resultchart">
             <div class="rc-top"><div><div class="t">Sales vs ACOS over six months</div><div class="s">Representative account. Indexed to month one.</div></div><div class="rc-legend"><span><i style="background:#C9A961"></i> Sales</span><span><i style="background:#0A1F33"></i> ACOS</span></div></div>
             <svg viewBox="0 0 900 320" width="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Sales rising and ACOS falling">
               <defs><linearGradient id="rcfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A961" stop-opacity="0.28"/><stop offset="100%" stop-color="#C9A961" stop-opacity="0"/></linearGradient></defs>
@@ -91,7 +90,7 @@
           <a href="#services" class="lnk">How we rank you <span class="arr">&#8594;</span></a>
         </div>
         <div class="hb-visual reveal">
-          <div class="serp tilt">
+          <div class="serp">
             <div class="serp-bar"><div class="serp-search"><span class="mag"></span> magnesium glycinate</div><div class="serp-go">Search</div></div>
             <div class="serp-results">
               <div class="pcard win"><span class="tag you">Your brand</span><div class="pthumb" style="background:linear-gradient(160deg,#10243a,#0a1c2d)"><svg width="38" height="38"><use href="#acemark"/></svg></div><div class="pt">Premium Magnesium Glycinate 500mg</div><div class="pstars"><span class="st">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="ct">4.8 (2,914)</span></div><div class="pr">$24<small>.95</small></div><span class="prime">Prime</span></div>
@@ -112,7 +111,7 @@
           <a href="#faq" class="lnk">What you get <span class="arr">&#8594;</span></a>
         </div>
         <div class="hb-visual reveal">
-          <div class="dash tilt">
+          <div class="dash">
             <div class="dash-chrome"><i></i><i></i><i></i><span class="dt">Acefold &#183; Account Pulse</span></div>
             <div class="dash-body">
               <div class="dash-tiles">
@@ -187,6 +186,28 @@
       <h2>What founders <span class="gold">say</span>.</h2>
       <p>We let the numbers do most of the talking. Here's what the people behind them add.</p>
     </div>
+    <div class="vfeature reveal">
+      <div class="vwrap">
+        <span class="vbadge">Video</span>
+        <video controls preload="none" playsinline poster="testimonial-poster.jpg">
+          <source src="testimonial-umar.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="vcopy">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <h3>In their own <b>words</b>.</h3>
+        <p>Ninety seconds on what changed after we took over the account. No script polish, no agency spin, just the account owner talking through what actually moved.</p>
+        <div class="who-row">
+          <div class="avatar">M</div>
+          <div>
+            <div class="nm">Mike</div>
+            <div class="rl">Home &amp; kitchen brand</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="tgrid">
       <div class="tcard reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>They didn't redesign our listings to look nice. They rebuilt the funnel and our <b>CVR jumped 34%</b> in the first cycle.</p><div class="who-row"><div class="avatar">SM</div><div><div class="nm">S. M.</div><div class="rl">Founder · Supplement brand</div></div></div></div>
       <div class="tcard reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>First team that talked about <b>profit before pixels</b>. We finally know which campaigns make money and which were just burning spend.</p><div class="who-row"><div class="avatar">JR</div><div><div class="nm">J. R.</div><div class="rl">Owner · Sports nutrition brand</div></div></div></div>
@@ -276,7 +297,5 @@
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.05)+'s';io.observe(el)});
 </script>
-<script src="three.min.js" defer></script>
-<script src="fx.js" defer></script>
 </body>
 </html>
