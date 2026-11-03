@@ -420,3 +420,16 @@
 
 /* odd last figure spans the row */
 .case-figs:not(.one):not(.five) figure:last-child:nth-child(odd){grid-column:1/-1}
+
+/* ===== phone polish ===== */
+.rcard .projtag{font-size:11px;white-space:nowrap;display:inline-block;margin-top:4px}
+.rcard-type{font-size:11px}
+.cm .proj{font-size:11px}
+@media(max-width:720px){
+  .case-metrics{grid-template-columns:repeat(2,1fr);gap:10px}
+  .cm{padding:16px 14px 14px}
+  .cm .v{font-size:22px}
+  .rcard{padding:24px 22px 22px}
+  .rcard-top{flex-direction:column;align-items:flex-start;gap:10px}
+  .rcard .projtag{margin-left:0;margin-top:8px;display:table}
+}
