@@ -433,3 +433,39 @@
   .rcard-top{flex-direction:column;align-items:flex-start;gap:10px}
   .rcard .projtag{margin-left:0;margin-top:8px;display:table}
 }
+
+/* ===== LIGHT MODE (toggle in the menu; dark stays the default) ===== */
+.theme-toggle{position:relative;z-index:101;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;margin-left:22px;flex-shrink:0;border-radius:50%;border:1px solid var(--line-navy);background:transparent;color:var(--gold);cursor:pointer;transition:border-color .25s,transform .25s}
+.theme-toggle:hover{border-color:var(--gold);transform:rotate(-12deg)}
+.theme-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.theme-toggle svg{width:18px;height:18px}
+.theme-toggle .i-moon{display:none}
+[data-theme="light"] .theme-toggle .i-sun{display:none}
+[data-theme="light"] .theme-toggle .i-moon{display:block}
+.nav-links{margin-left:auto}
+@media(max-width:1120px){.theme-toggle{margin-left:auto;margin-right:16px}}
+
+[data-theme="light"]{--cream:#0A1F33;--muted-cream:rgba(10,31,51,0.66);--line-navy:rgba(10,31,51,0.12)}
+[data-theme="light"] body{background:#F5EFE2;color:#0A1F33}
+[data-theme="light"] ::selection{color:#0A1F33}
+[data-theme="light"] .sec-cream{background:#FFFFFF}
+[data-theme="light"] .nav-bg.scrolled{background:rgba(245,239,226,0.96)}
+[data-theme="light"] .case-jump{background:rgba(245,239,226,0.96)}
+[data-theme="light"] .case:nth-of-type(even){background:#FFFFFF}
+[data-theme="light"] .case-cols li{color:rgba(10,31,51,0.82)}
+[data-theme="light"] .cfield input,[data-theme="light"] .cfield textarea{background:#FFFFFF}
+[data-theme="light"] .cm .proj{background:#0A1F33;color:#F5EFE2}
+[data-theme="light"] .rcard .projtag,[data-theme="light"] .rfilter button.on{color:#F5EFE2}
+[data-theme="light"] .hero-glow{background:radial-gradient(circle,rgba(201,169,97,0.18) 0%,transparent 62%)}
+@media(max-width:1120px){[data-theme="light"] .nav-links{background:#F5EFE2}}
+
+/* gold text needs the darker gold on light surfaces */
+[data-theme="light"] :is(.eyebrow,.lnk,.ctag,.case-cols h3,.vcard .vn,.banner .crumb a,.contact-side a,.bbody .more,.wcard-cat,.wcard .wstat .v,.cm .v.g,.brand-name b,.theme-toggle){color:#9a7d2f}
+[data-theme="light"] .gold{color:#b8923a}
+[data-theme="light"] .ctag{border-color:rgba(154,125,47,0.4)}
+[data-theme="light"] .ctag.solid{color:#0A1F33;border-color:var(--gold)}
+[data-theme="light"] .case-num{-webkit-text-stroke-color:#b8923a}
+
+/* these stay dark in both modes, as before */
+[data-theme="light"] :is(.cta,footer,.about-panel,.dash){--cream:#F5EFE2;--muted-cream:rgba(245,239,226,0.62);--line-navy:rgba(245,239,226,0.12);color:#F5EFE2}
+[data-theme="light"] :is(.cta,footer) :is(.eyebrow,.gold,.brand-name b){color:var(--gold)}

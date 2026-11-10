@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
 <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
 <link rel="stylesheet" href="style.css" />
+<script>try{if(localStorage.getItem('acefold-theme')==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}</script>
 <link rel="canonical" href="https://acefold.com/testimonials.html" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta property="og:type" content="website" />
@@ -74,6 +75,7 @@
     <a href="contact.html">Contact Us</a>
     <a href="https://calendly.com/team-acefold/30min" target="_blank" rel="noopener" class="btn btn-gold" style="padding:11px 20px">Book an Audit</a>
   </div>
+  <button class="theme-toggle" id="themetoggle" type="button" aria-label="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg></button>
   <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -161,5 +163,16 @@
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*0.06)+'s';io.observe(el)});
 </script>
 
+<script>
+  const themeBtn=document.getElementById('themetoggle');
+  const setThemeLabel=()=>themeBtn.setAttribute('aria-label',document.documentElement.getAttribute('data-theme')==='light'?'Switch to dark mode':'Switch to light mode');
+  setThemeLabel();
+  themeBtn.addEventListener('click',()=>{
+    const light=document.documentElement.getAttribute('data-theme')!=='light';
+    if(light)document.documentElement.setAttribute('data-theme','light');else document.documentElement.removeAttribute('data-theme');
+    try{localStorage.setItem('acefold-theme',light?'light':'dark')}catch(e){}
+    setThemeLabel();
+  });
+</script>
 </body>
 </html>
